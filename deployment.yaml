@@ -1,11 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: simple-devops-project
-  labels:
-    app: simple-devops-project
+  name: simple-devops-project-deployment
 spec:
-  replicas: "2"
+  replicas: 2
   selector:
     matchLabels:
       app: simple-devops-project
@@ -15,8 +13,7 @@ spec:
         app: simple-devops-project
     spec:
       containers:
-      - name: simple-devops-image
-        image: techvault2024/simple-devops-image
-
+      - image: techvault2024/simple-devops-image
+        name: simple-devops-image
         ports:
         - containerPort: 8080
