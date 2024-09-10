@@ -2,13 +2,13 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: simple-devops-project-deployment
-  name: simple-devops-project-deployment
+    app: simple-devops-project
+  name: simple-devops-project
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: simple-devops-project-deployment
+      app: simple-devops-project
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -17,7 +17,7 @@ spec:
   template:
     metadata:
       labels:
-        app: simple-devops-project-deployment
+        app: simple-devops-project
     spec:
       containers:
       - image: techvault2024/simple-devops-image
@@ -27,3 +27,4 @@ spec:
         - containerPort: 8080
           protocol: TCP
       restartPolicy: Always
+
